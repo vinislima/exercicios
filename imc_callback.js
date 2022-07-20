@@ -6,8 +6,8 @@ function calcImc (peso, altura, callback) {
     } else if (peso === undefined || altura === undefined) {
         throw Error("Faltou informar um parâmetro")
     } 
-    let imc = peso / (altura ** 2)
-    if (typeof callback !== "function") {
+    let imc = peso / (altura ** 2);
+    if (typeof callback === "function") {
         return callback(imc)
     }
     return imc;
@@ -30,6 +30,6 @@ function classImc (imc) {
 }
 
 let imc = calcImc(85,1.85);
-let imc2 = calcImc(85, 1.85, classImc);
+let imc2 = calcImc(85,1.85,classImc);
 
 console.log(imc2);
