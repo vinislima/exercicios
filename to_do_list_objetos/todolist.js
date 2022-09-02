@@ -14,7 +14,7 @@
         //  - updatedAt - timestamp - opcional, null é o valor default
         // o objeto retornado por essa funcao deve ter um método chamado toggleDone, que deve inverter o boolean completed
         if(!name){
-            throw new Error("Precisa informar o nome do paramêtro")
+            throw new Error("Precisa informar o nome do parâmetro")
         }
 
         let _name = name;
