@@ -93,31 +93,46 @@
 	<script type="text/javascript">
 
 		const paragrafos = Array.from(document.querySelectorAll(".card p"));
-		const originText = paragrafos.map(p => p.innerText);
+		const originTexts = paragrafos.map(p => p.innerText);
 		const maxLength = 100;
 
-		paragrafos.forEach( (p, i) => {
-			if(p.innerText.length > maxLength) {
-				p.textContent = p.innerHTML.substring(0, maxLength) + "...";
+		paragrafos.forEach((p, i) => {
+
+			if(p.innerText.length > maxLength){
+				p.textContent = p.innerText.substring(0, maxLength) + "...";
 
 				const btn = document.createElement("button");
-				btn.innerHTML = '<i class = "fas fa-chevron-down"></i>'
+				btn.innerHTML = '<i class = "fas fa-chevron-down"></i>';
 				p.parentElement.classList.add("text-hidden");
 
-				btn.addEventListener("click", toggleText);
+				// btn.addEventlistener("click", toggleText);
+				btn.addEventListener("click", function(e){
 
+					toggleText(e, p, i)
+				});
+				
 				p.parentElement.appendChild(btn);
+
 			}
+
 		})
 
-		function toggleText(e) {
+		function toggleText(e, p, i) {
 
 			console.log(e.currentTarget);
-			const card = this.parentElement;
+			// console.log(this)
+			const card = e.currentTarget.parentElement;
 
-			card.classList.toggle("text-hidden");
-			this.querySelector("i").classList.toggle("fa-chevron-down");
-			this.querySelector("i").classList.toggle("fa-chevron-up");
+			 card.classList.toggle("text-hidden");
+			 e.currentTarget.querySelector("i").classList.toggle("fa-chevron-down");
+			 e.currentTarget.querySelector("i").classList.toggle("fa-chevron-up");
+
+			 if(card.classList.contains("text-hidden")) {
+
+				card.querySelector("p").textContent = originTexts[i].substring(0, maxLength) + "...";
+			 } else {
+				card.querySelector("p").textContent = originTexts[i];
+			 }
 		}
 
 	</script>
