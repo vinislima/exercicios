@@ -21,7 +21,9 @@
             let originalPositionX = getComputedStyle(c).backgroundPositionX;
 
             if(isGettingOut(c)){
-                c.style.backgroundPosition = ` ${originalPositionX} ${getNewPosition(c)}px`
+                c.style.backgroundPosition = ` ${originalPositionX} ${getNewPosition(c)}px `
+            } else {
+                c.style.backgroundPosition = ` ${originalPositionX} 0px `
             }
         })
     }
