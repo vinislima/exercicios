@@ -29,11 +29,11 @@ const obj2 = {
 Object.defineProperties(obj2,  {
 
     naoEnumeravel: {
-        value: "não enumeravel"
+        value: "não enumerável"
     },
 
      enumeravel: {
-        value: "enumeravel",
+        value: "enumerável",
         enumerable: true
      }
 })
@@ -50,3 +50,6 @@ const obj3  = { ...obj1, ...obj2 }
 console.log(obj3)
 
 console.log(Object.keys(obj2));
+console.log(Object.values(obj2));
+console.log(Object.entries(obj2));
+
