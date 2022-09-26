@@ -1,4 +1,9 @@
 class AlunoModel {
+
+    // constructor(aluno) {
+    //     this.nome = aluno.nome
+    // }
+
     constructor({nome, _id, notas} = {notas: {}}){
         this.nome = nome
         this._id = (_id !== undefined) ? _id : this.generateId()
