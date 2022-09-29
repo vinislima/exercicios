@@ -39,3 +39,11 @@ document.querySelector("form").addEventListener("submit", function(e) {
 
     alunosController.add({nome})
 })
+
+document.querySelector("#search_name").addEventListener("input", function(){
+  const name = this.value
+
+  if(name.length > 2 || name.length === 0) {
+    alunosController.search(name)
+  }
+})

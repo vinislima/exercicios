@@ -13,11 +13,16 @@ class AlunosService {
     }
 
     edit(aluno) {
-        return aluno
+        aluno.generateAvarege()
+        this.updateLocalStorage()
     }
 
     searchById(id) {
         return this.alunos.find(aluno => aluno._id === id)
+    }
+
+    search(name) {
+        return this.alunos.filter(aluno => aluno.nome.indexOf(name) >= 0)
     }
 
     updateLocalStorage() {
