@@ -42,8 +42,20 @@ document.querySelector("form").addEventListener("submit", function(e) {
 
 document.querySelector("#search_name").addEventListener("input", function(){
   const name = this.value
+  sessionStorage.setItem("search", name)
 
   if(name.length > 2 || name.length === 0) {
     alunosController.search(name)
   }
 })
+
+const inputEvent = new Event("input")
+const inputEvent_IE = document.createEvent("Event")
+inputEvent_IE.initEvent("input", true, true)
+
+
+if(sessionStorage.getItem("search")) {
+  document.querySelector("#search_name").value = sessionStorage.getItem("search")
+  // document.querySelector("#search_name").dispatchEvent(inputEvent)
+  document.querySelector("#search_name").dispatchEvent(inputEvent_IE)
+}
